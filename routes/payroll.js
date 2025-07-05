@@ -4,7 +4,6 @@ const PayrollPayment = require('../models/PayrollPayment');
 
 // 1. Manager initiates payment
 router.post('/initiate', async (req, res) => {
-  console.log('Received body:', req.body);
   const { paymentDetails, virtualAccountId, initiatedBy } = req.body;
   const payment = new PayrollPayment({
     paymentDetails,
