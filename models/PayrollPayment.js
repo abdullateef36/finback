@@ -16,7 +16,20 @@ const PayrollPaymentSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
+  },
+
+  feeDetails: {
+    amount: { type: Number, default: 0 },
+    reason: { type: String },
+    threshold: { type: Number } // 10 or 11
+  },
+  totals: {
+    subtotal: Number,  // Sum of salaries
+    fee: Number,       // Calculated charge
+    grandTotal: Number // subtotal + fee
   }
+}, {
+  timestamps: true
 });
 
 module.exports = mongoose.model('PayrollPayment', PayrollPaymentSchema);
